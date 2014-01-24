@@ -14,8 +14,8 @@ end
 
 package 'mongo-10gen-server'
 
-["/var/lib/mongodb", "/var/log/mongodb/mongod.log"].each do |f|
-  file f do
+["/var/lib/mongodb", "/var/log/mongodb/"].each do |d|
+  directory d do
     owner "mongod"
     group "mongod"
     mode "600"
