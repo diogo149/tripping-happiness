@@ -17,7 +17,7 @@ ruby_block "append to a file" do
   fe.write_file
 end
 
-require('mongo-10gen-server')
+package 'mongo-10gen-server'
 
 ["/var/lib/mongodb", "/var/log/mongodb/mongod.log"].each do |f|
   file f do
