@@ -4,6 +4,7 @@ node[:repos].each do |repo|
   user = repo[:user]
   url = repo[:url]
   name = repo[:name] != nil ? repo[:name] : url.match(/.*\/(.*?)\.git/)[1]
+  dir = repo[:dir] != nil ? repo[:dir] : name
   ssh_key = repo[:ssh_key]
   home = "/home/#{user}"
   wrapper = "#{home}/.ssh/#{name}_ssh_wrapper.sh"
@@ -33,7 +34,7 @@ node[:repos].each do |repo|
     revision repo[:branch] != nil ? repo[:branch] : "master"
     user user
     # group repo[:group] != nil ? repo[:group] : user
-    destination "#{home}/#{repo[:dir]}"
+    destination "#{home}/#{dir}"
     if ssh_key != nil
       ssh_wrapper wrapper
     end
