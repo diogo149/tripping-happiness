@@ -1,22 +1,15 @@
 require 'fileutils'
 require 'pathname'
 
-yum_file = "/etc/yum.repos.d/mongodb.repo"
-
 repo_info = "[MongoDB]
 name=MongoDB Repository
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
 gpgcheck=0
-enabled=1"
+enabled=1
+"
 
-ruby_block "mongo repo config" do
-  block do
-    Pathname.new(yum_file).parent.mkpath
-    FileUtils.touch(yum_file)
-    fe = Chef::Util::FileEdit.new(yum_file)
-    fe.insert_line_if_no_match(repo_info, repo_info)
-    fe.write_file
-  end
+file "/etc/yum.repos.d/mongodb.repo" do
+  content "#{repo_info}"
 end
 
 package 'mongo-10gen-server'
