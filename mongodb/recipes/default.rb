@@ -2,7 +2,6 @@ require 'fileutils'
 require 'pathname'
 
 yum_file = "/etc/yum.repos.d/mongodb.repo"
-yum_file = "/home/tehfav/hi"
 
 repo_info = "[MongoDB]
 name=MongoDB Repository
