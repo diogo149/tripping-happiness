@@ -22,6 +22,7 @@ package 'mongo-10gen-server'
   end
 end
 
+# TODO don't start the service, leave to deploy step
 service 'mongod' do
   action [:enable, :start]
 end

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-chef-solo -c solo.rb -j test.json
+chef-solo -c solo.rb -j experiment.json

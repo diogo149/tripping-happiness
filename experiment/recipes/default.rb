@@ -91,3 +91,28 @@ package 'python'
 #   group node[:lein][:group]
 #   environment ({"HOME" => node[:lein][:home]})
 # end
+
+package 'vim'
+
+ruby_block "test" do
+  block do
+    print("hello world")
+    print(node[:foo][:bar])
+  end
+end
+
+# git ENV['HOME'] + "/test" do
+#   repository "git://github.com/diogo149/tripping-happiness.git"
+#   revision "master"
+#   action :sync
+#   user ENV['USER']
+#   group "wheel"
+# end
+
+# user "testu" do
+#   supports :manage_home => true
+#   home "/home/testu"
+#   shell "/bin/bash"
+#   group "wheel"
+#   action :create
+# end

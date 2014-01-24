@@ -1,0 +1,9 @@
+{
+    "run_list": [
+        "recipe[experiment::default]"
+    ],
+    "name": "thisisatest",
+    "foo": {
+        "bar": 42
+    }
+}

@@ -1,6 +1,0 @@
-{
-    "run_list": [
-        "recipe[experiment::default]",
-        "recipe[mongodb::default]"
-    ]
-}

@@ -1,0 +1,18 @@
+{
+    "run_list": [
+        "recipe[repos::default]"
+    ],
+    "prod": {
+        "user": "prod",
+        "group": "prod"
+    },
+    "repos": [
+        {
+            "url": "git://github.com/diogo149/tripping-happiness.git",
+            // "url": "git@bitbucket.org:diogo149/thisisatest.git",
+            "user": "prod",
+            "dir": "test",
+            "branch": "master"
+        }
+    ]
+}
