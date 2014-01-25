@@ -1,0 +1,1 @@
+execute "pkill java"

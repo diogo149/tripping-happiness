@@ -1,6 +1,6 @@
 {
     "run_list": [
-        "recipe[users::default]"
+        "recipe[lein_run::default]"
     ],
     // "prod": {
     //     "user": "prod1",
@@ -8,11 +8,15 @@
     // },
     "repos": [
         {
-            "url": "git://github.com/diogo149/tripping-happiness.git",
-            // "url": "git@bitbucket.org:diogo149/thisisatest.git",
+            "url": "git://github.com/diogo149/laughing-shame.git",
             "user": "prod",
-            "dir": "test",
             "branch": "master"
+        }
+    ],
+    "lein_run": [
+        {
+            "dir": "laughing-shame",
+            "user": "prod"
         }
     ]
 }
