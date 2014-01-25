@@ -16,7 +16,8 @@ node[:deploy].each do |application, deploy|
   jar = node[:lein_jar]
   dir = "#{deploy[:deploy_to]}/current"
 
-  execute "pkill #{lein_jar}"
+  # TODO kill old version (do a check first)
+  # execute "pkill #{lein_jar}"
 
   execute "lein uberjar" do
     cwd dir
