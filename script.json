@@ -18,5 +18,8 @@
             "dir": "laughing-shame",
             "user": "prod"
         }
-    ]
+    ],
+    "jar": {
+        "jar_pattern": "laughing-shame-0.1.0-SNAPSHOT-standalone.jar"
+    }
 }
