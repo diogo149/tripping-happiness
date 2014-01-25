@@ -19,7 +19,5 @@
             "user": "prod"
         }
     ],
-    "jar": {
-        "jar_pattern": "laughing-shame-0.1.0-SNAPSHOT-standalone.jar"
-    }
+    "lein_jar": "laughing-shame-0.1.0-SNAPSHOT-standalone.jar"
 }
