@@ -25,6 +25,6 @@ node[:deploy].each do |application, deploy|
 
   # TODO delete code and only keep versions of uberjar
   execute "java -jar #{dir}/target/#{jar} &" do
-    user prod
+    user "prod"
   end
 end
