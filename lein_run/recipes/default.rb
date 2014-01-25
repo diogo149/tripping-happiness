@@ -8,7 +8,8 @@ node[:lein_run].each do |instruction|
     cwd dir
     command "lein run &"
     user username
-    # doesn't run if java is already running
-    not_if { `ps aux | grep java`.split('\n').length > 1 }
+    # searching for something like:
+    # -Dleiningen.original.pwd=...
+    not_if { `ps aux | grep "lein.*#{dir}"`.split('\n').length > 1 }
   end
 end
