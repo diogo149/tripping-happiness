@@ -1,13 +1,23 @@
-prod = node[:prod] != nil ? node[:prod] : {}
-prod_user = prod[:user] != nil ? prod[:user] : "prod"
-prod_group = prod[:group] != nil ? prod[:group] :  prod_user
+default_shell = "/bin/bash"
 
-group prod_group
+[
+ ["prod"],
+ ["mongod"],
+].each do |user, group, shell|
+  if group == nil
+    group = user
+  end
+  if shell == nil
+    shell = default_shell
+  end
 
-user prod_user do
-  supports :manage_home => true
-  home "/home/#{prod_user}"
-  shell prod[:shell] != nil ? prod[:shell] : "/bin/bash"
-  group prod_group
-  action :create
+  group group
+
+  user user do
+    supports :manage_home => true
+    home "/home/#{user}"
+    shell shell
+    group group
+    action :create
+  end
 end

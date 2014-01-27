@@ -14,7 +14,13 @@ end
 
 package 'mongo-10gen-server'
 
-["/var/lib/mongodb", "/var/log/mongodb/"].each do |d|
+[
+ "/var/lib/mongodb",
+ "/var/log/mongodb/",
+ "/data",
+ "/log",
+ "/journal",
+].each do |d|
   directory d do
     owner "mongod"
     group "mongod"
@@ -23,6 +29,6 @@ package 'mongo-10gen-server'
 end
 
 # TODO don't start the service, leave to deploy step
-service 'mongod' do
-  action [:enable, :start]
-end
+# service 'mongod' do
+#   action [:enable, :start]
+# end

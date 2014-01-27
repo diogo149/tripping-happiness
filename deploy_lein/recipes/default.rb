@@ -16,11 +16,14 @@ node[:deploy].each do |application, deploy|
   jar = node[:lein_jar]
   dir = "#{deploy[:deploy_to]}/current"
 
-  # TODO kill old version (do a check first)
-  # execute "pkill #{lein_jar}"
+  execute "pkill #{jar}" do
+    not_if { `ps aux | grep #{jar}`.split('\n').length <= 1 }
+  end
 
   execute "lein uberjar" do
     cwd dir
+    # allows snapshots to be built into the jar
+    environment 'LEIN_SNAPSHOTS_IN_RELEASE' => 'override'
   end
 
   # TODO delete code and only keep versions of uberjar
