@@ -17,9 +17,9 @@ package 'mongo-10gen-server'
 [
  "/var/lib/mongodb",
  "/var/log/mongodb/",
- "/data",
- "/log",
- "/journal",
+ # "/data",
+ # "/log",
+ # "/journal",
 ].each do |d|
   directory d do
     owner "mongod"
